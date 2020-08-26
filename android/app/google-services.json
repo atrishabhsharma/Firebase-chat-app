@@ -1,0 +1,32 @@
+{
+    "project_info": {
+        "project_number": "912239405756",
+        "firebase_url": "https://fire-chat-36ff6.firebaseio.com",
+        "project_id": "fire-chat-36ff6",
+        "storage_bucket": "fire-chat-36ff6.appspot.com"
+    },
+    "client": [{
+        "client_info": {
+            "mobilesdk_app_id": "1:912239405756:android:4754667b8ebc025721feb9",
+            "android_client_info": {
+                "package_name": "com.voyagersage.firechat"
+            }
+        },
+        "oauth_client": [{
+            "client_id": "912239405756-32lff47a3pk4k28gmlh4cng6php4cgj6.apps.googleusercontent.com",
+            "client_type": 3
+        }],
+        "api_key": [{
+            "current_key": "AIzaSyAZsjty7XXVrVVbjPc6OBdz8xsdVYyO2yE"
+        }],
+        "services": {
+            "appinvite_service": {
+                "other_platform_oauth_client": [{
+                    "client_id": "912239405756-32lff47a3pk4k28gmlh4cng6php4cgj6.apps.googleusercontent.com",
+                    "client_type": 3
+                }]
+            }
+        }
+    }],
+    "configuration_version": "1"
+}
