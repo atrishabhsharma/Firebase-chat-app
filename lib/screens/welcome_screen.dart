@@ -11,24 +11,24 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     with SingleTickerProviderStateMixin {
   AnimationController controller;
   Animation animation;
+
   @override
   void initState() {
     super.initState();
 
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 1),
-      upperBound: 100,
+      duration: Duration(seconds: 5),
+      upperBound: 60,
     );
 
-    animation = ColorTween(begin: Colors.redAccent, end: Colors.red)
-        .animate(controller);
+    animation =
+        ColorTween(begin: Colors.red, end: Colors.blue).animate(controller);
 
     controller.forward();
 
     controller.addListener(() {
       setState(() {});
-      print(animation.value);
     });
   }
 
@@ -41,7 +41,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: animation.value,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -52,10 +52,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               children: <Widget>[
                 Container(
                   child: Image.asset('images/logo.png'),
-                  height: animation.value,
+                  height: controller.value,
                 ),
                 TypewriterAnimatedTextKit(
-                  text: ['Fire Chat '],
+                  speed: Duration(seconds: 1),
+                  text: ['Fire Chat'],
                   textStyle: TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
