@@ -1,3 +1,4 @@
+import 'package:firechat/authenticate.dart';
 import 'package:firechat/components/roundButton.dart';
 import 'package:firechat/constants.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  String email;
+  String password;
+  AuthenticateService _authenticateService = AuthenticateService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +33,8 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 48.0,
             ),
             TextField(
+              keyboardType: TextInputType.emailAddress,
+              textAlign: TextAlign.center,
               onChanged: (value) {
                 //Do something with the user input.
               },
@@ -39,6 +45,8 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 8.0,
             ),
             TextField(
+              obscureText: true,
+              textAlign: TextAlign.center,
               onChanged: (value) {
                 //Do something with the user input.
               },
@@ -51,7 +59,16 @@ class _LoginScreenState extends State<LoginScreen> {
             RoundedButtons(
                 title: 'Log In',
                 color: Colors.lightBlueAccent,
-                onPressed: () {}),
+                onPressed: () async {
+                  var user = await _authenticateService.loginWithEmail(
+                    email: email,
+                    password: password,
+                  );
+
+                  if (user == null) {
+                    print('error');
+                  }
+                }),
           ],
         ),
       ),
